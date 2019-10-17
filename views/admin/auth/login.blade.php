@@ -1,14 +1,14 @@
 @extends('admin.auth.layouts.layout')
 
 @section('content')
+
     @if(session('message'))
         <div class="alert alert-danger">{{ flash('message') }}</div>
     @endif
 
-
     <form action="{{ url('admin-panel/') }}" method="post">
         <div class="form-group has-feedback @if($errors && $errors->has('user_name')) has-error @endif">
-            <input type="text" name="user_name" class="form-control" placeholder="Username" value="{{ $old?$old['user_name']:'' }}">
+            <input type="text" name="user_name" class="form-control" placeholder="Username" value="{{$old?$old['user_name']:''}}">
             <span class="fa fa-user form-control-feedback"></span>
             @if($errors && $errors->has('user_name'))
                 <div class="help-block">{{ $errors->first('user_name') }}</div>
@@ -37,3 +37,5 @@
         </div>
     </form>
 @endsection
+
+
